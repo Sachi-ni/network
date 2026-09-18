@@ -92,7 +92,14 @@ Router0(config)#interface Serial0/0/0
 Router0(config)#interface Serial2/0
 Router0(config-if)#ip address 172.16.0.1 255.255.255.252
 Router0(config-if)#no shutdown
-
+HQ-R1(config-if)#no shutdown
+HQ-R1(config-if)#router rip
+HQ-R1(config-router)#network 192.168.10.0
+HQ-R1(config-router)#network 172.16.0.0
+HQ-R1(config-router)#exit
+HQ-R1(config)#exit
+HQ-R1#
+%SYS-5-CONFIG_I: Configured from console by console
 %LINK-5-CHANGED: Interface Serial2/0, changed state to down
 Router0(config-if)#ip route 192.168.20.2 255.255.255.0 172.16.0.2
 %Inconsistent address and mask
